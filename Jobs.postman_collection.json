@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "9b0eb2a1-a03f-4b03-a020-0ced70c75cf4",
+		"name": "Jobs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Data",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/data/data",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/data/data/1",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"data",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"title\": \"title\",\r\n\t\"descp\": \"sfd esdghdesp dxh\",\r\n\t\"phone\": 786876876,\r\n\t\"pin\": 87687\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/data/data",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 5,\r\n\t\"title\": \"title new\",\r\n\t\"descp\": \"sfd esdghdesp dxh jgrd\",\r\n\t\"phone\": 786876876,\r\n\t\"pin\": 87687\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/data/data",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"data"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/data/data/0",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"data",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "data HTML",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/data/dataHTML",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"data",
+								"dataHTML"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/address/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"address",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/address/250/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"address",
+								"250",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add edit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"leadID\": 2,\n    \"type\": 2,\n    \"addrLine1\": \"aadd\",\n    \"addrLine2\": \"addrLine2\",\n    \"landmark\": \"landmark\",\n    \"city\": \"city\",\n    \"district\": \"district\",\n    \"state\": \"state\",\n    \"country\": \"country\",\n    \"pincode\": 414001\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/address/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"address",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/address/250/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"address",
+								"250",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -2,17 +2,20 @@ package com.pritam.jobs.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 //import io.swagger.annotations.Api;
 //import io.swagger.annotations.ApiOperation;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import com.google.gson.Gson;
 import com.pritam.jobs.model.Address;
 import com.pritam.jobs.service.AddressService;
 
@@ -20,7 +23,7 @@ import com.pritam.jobs.service.AddressService;
 @RequestMapping("/address")
 //@Api(description = "MySQL Database CRUD operation")
 public class AddressController {
-	
+
 	@Autowired
 	private AddressService addressService;
 
@@ -29,20 +32,18 @@ public class AddressController {
 	public List<Address> listData() {
 		return addressService.findAll();
 	}
-	
+
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getData(@PathVariable(value = "id") Long id) {
+	public ResponseEntity<Address> getData(@PathVariable(value = "id") Long id) {
 		if (addressService.existsById(id)) {
-			return new ResponseEntity<Object>(addressService.find(id), HttpStatus.OK);
+			return new ResponseEntity<Address>(addressService.find(id), HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public ResponseEntity<Address> create(@RequestBody Address address) {
-		System.out.println(">>"+  (new Gson()).toJson(address));
-//		return new ResponseEntity<Address>(address, HttpStatus.OK);
+	public ResponseEntity<Address> create(@Valid @RequestBody Address address) {
 		if (addressService.existsById(address.getId())) {
 			return new ResponseEntity<Address>(addressService.save(address), HttpStatus.OK);
 		} else {
@@ -59,5 +60,5 @@ public class AddressController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-    
+
 }
