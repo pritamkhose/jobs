@@ -51,4 +51,6 @@ mvn spring-boot:run
 
 * [Liquibase](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
 
+## Lombok
+* [Lombok IDE installation](https://www.baeldung.com/lombok-ide)
 * [Lombok tutorial](https://medium.com/@udith.indrakantha/say-bye-bye-to-annoying-getters-setters-shorten-your-java-code-with-lombok-d656ae66e163)
