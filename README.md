@@ -54,3 +54,6 @@ mvn spring-boot:run
 ## Lombok
 * [Lombok IDE installation](https://www.baeldung.com/lombok-ide)
 * [Lombok tutorial](https://medium.com/@udith.indrakantha/say-bye-bye-to-annoying-getters-setters-shorten-your-java-code-with-lombok-d656ae66e163)
+
+## Swagger OpenAPI
+* [Swagger OpenAPI](https://www.baeldung.com/spring-rest-openapi-documentation)

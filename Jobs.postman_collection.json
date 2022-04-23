@@ -179,13 +179,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/address/250/",
+							"raw": "{{baseURL}}/address/251/",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"address",
-								"250",
+								"251",
 								""
 							]
 						}
@@ -225,13 +225,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/address/250/",
+							"raw": "{{baseURL}}/address/251/",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"address",
-								"250",
+								"251",
 								""
 							]
 						}
@@ -239,6 +239,41 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Swagger UI",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/swagger-ui/index.html",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"swagger-ui",
+						"index.html"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Swagger api-docs.yaml",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api-docs.yaml",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api-docs.yaml"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

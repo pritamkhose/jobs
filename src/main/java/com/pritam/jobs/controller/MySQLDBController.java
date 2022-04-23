@@ -1,8 +1,5 @@
 package com.pritam.jobs.controller;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +12,16 @@ import org.springframework.ui.Model;
 import com.pritam.jobs.model.Data;
 import com.pritam.jobs.service.DataService;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping("/data")
-@Api(description = "MySQL Database CRUD operation")
 public class MySQLDBController {
 
 	@Autowired
 	private DataService dataService;
 
-	@ApiOperation(value = "View a list")
+	@Operation(summary = "View a Data list")
 	@RequestMapping(value = "/data", method = RequestMethod.GET)
 	public List<Data> listData() {
 		return dataService.findAll();
