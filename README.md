@@ -57,3 +57,10 @@ mvn spring-boot:run
 
 ## Swagger OpenAPI
 * [Swagger OpenAPI](https://www.baeldung.com/spring-rest-openapi-documentation)
+
+## Actuators
+* [baeldung](https://www.baeldung.com/spring-boot-actuators)
+* [callicoder](https://www.callicoder.com/spring-boot-actuator/)
+
+## logging
+* [logging](https://www.baeldung.com/spring-boot-logging)

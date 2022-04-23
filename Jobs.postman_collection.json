@@ -274,6 +274,23 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Actuator",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/actuator",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"actuator"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
