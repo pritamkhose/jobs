@@ -1,0 +1,25 @@
+{
+	"AddressType": [
+		{
+			"id": 1,
+			"value": "Home"
+		},
+		{
+			"id": 2,
+			"value": "Office"
+		},
+		{
+			"id": 3,
+			"value": "Present"
+		},
+		{
+			"id": 4,
+			"value": "Permanent"
+		},
+		
+		{
+			"id": 5,
+			"value": "Other"
+		}
+	]
+}

@@ -6,6 +6,34 @@
 	},
 	"item": [
 		{
+			"name": "Config",
+			"item": [
+				{
+					"name": "config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/config?type=Config",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"config"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "Config"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Data",
 			"item": [
 				{
