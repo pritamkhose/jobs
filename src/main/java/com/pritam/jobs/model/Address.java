@@ -25,14 +25,22 @@ public class Address implements Serializable {
 
 	@Column
 	@NotNull
-    @Size(min = 4, max = 50, message = "addrLine1 field must be at least 4 and max 50 characters")
-    private String addrLine1;
-	
+	private long refID;
+
+	@Column
+	@NotNull
+	@Size(min = 1, max = 30, message = "type field must be at least 1 and max 30 characters")
+	private String type;
+
+	@Column
+	@NotNull
+	@Size(min = 4, max = 50, message = "addrLine1 field must be at least 4 and max 50 characters")
+	private String addrLine1;
+
 	@Column
 	@NotNull
 	@Size(min = 1, max = 50, message = "addrLine2 field must be at least 1 and max 50 characters")
-    private String addrLine2;
-    
+	private String addrLine2;
 
 	@Column
 	@Nullable
@@ -61,6 +69,6 @@ public class Address implements Serializable {
 
 	@Column
 	@NotNull
-	@Range(min= 99999, max= 1000000, message = "pincode field must be at least 6 characters")
+	@Range(min = 99999, max = 1000000, message = "pincode field must be at least 6 characters")
 	private int pincode;
 }

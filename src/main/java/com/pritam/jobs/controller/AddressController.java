@@ -4,9 +4,6 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-//import io.swagger.annotations.Api;
-//import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +18,12 @@ import com.pritam.jobs.service.AddressService;
 
 @RestController
 @RequestMapping("/address")
-//@Api(description = "MySQL Database CRUD operation")
 public class AddressController {
 
 	@Autowired
 	private AddressService addressService;
 
-//	@ApiOperation(value = "View a list")
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public List<Address> listData() {
 		return addressService.findAll();
 	}
@@ -42,7 +37,7 @@ public class AddressController {
 		}
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Address> create(@Valid @RequestBody Address address) {
 		if (addressService.existsById(address.getId())) {
 			return new ResponseEntity<Address>(addressService.save(address), HttpStatus.OK);

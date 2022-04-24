@@ -13,12 +13,13 @@ import io.swagger.v3.oas.annotations.Operation;
 public class IndexController {
 
 	@Operation(summary = "Home")
-    @RequestMapping(value="/", method = RequestMethod.GET)
-    public Object getData(){
-    	HashMap<String, Object> hm = new HashMap<String, Object>();
-    	hm.put("Message", "Server is Running");
-    	hm.put("Date", new Date());
-        return hm;
-    }
-    
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public Object getData() {
+		HashMap<String, Object> hm = new HashMap<String, Object>();
+		hm.put("Name", "Jobs App");
+		hm.put("Status", "Server is Running");
+		hm.put("Date", new Date());
+		return hm;
+	}
+
 }

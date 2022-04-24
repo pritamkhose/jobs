@@ -48,9 +48,9 @@ public class MySQLDBController {
 	@RequestMapping(value = "/data", method = RequestMethod.POST)
 	public ResponseEntity<Data> create(@RequestBody Data data) {
 		if (dataService.existsById(data.getId())) {
-			return new ResponseEntity<Data>(dataService.save(data), HttpStatus.CREATED);
-		} else {
 			return new ResponseEntity<Data>(dataService.save(data), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<Data>(dataService.save(data), HttpStatus.CREATED);
 		}
 	}
 

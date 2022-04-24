@@ -189,13 +189,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/address/",
+							"raw": "{{baseURL}}/address",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"address",
-								""
+								"address"
 							]
 						}
 					},
@@ -207,14 +206,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/address/251/",
+							"raw": "{{baseURL}}/address/1",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"address",
-								"251",
-								""
+								"1"
 							]
 						}
 					},
@@ -235,12 +233,96 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/address/",
+							"raw": "{{baseURL}}/address",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/address/1",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"address",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/user/66",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
+								"66"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add edit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstName\": \"firstName\",\n  \"lastName\": \"lastName\",\n  \"emailID\": \"email.com@sdjg.com\",\n  \"mobileNo\": 9754124361\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"user",
 								""
 							]
 						}
@@ -253,14 +335,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/address/251/",
+							"raw": "{{baseURL}}/user/67",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"address",
-								"251",
-								""
+								"user",
+								"67"
 							]
 						}
 					},
