@@ -9,10 +9,9 @@ import com.pritam.jobs.model.Address;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Service(value = "addressService")
 public class AddressServiceImpl implements AddressService {
-	
+
 	@Autowired
 	private AddressDao addressDao;
 
@@ -28,15 +27,14 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-    public Address save(Address address) {
-		System.out.println(address.toString());
-        return addressDao.save(address);
-    }
+	public Address save(Address address) {
+		return addressDao.save(address);
+	}
 
 	@Override
 	public Address find(long id) {
 		Address address = addressDao.findById(id).orElse(null);
-		if(address == null){
+		if (address == null) {
 			address = null;
 		}
 		return address;
@@ -46,5 +44,13 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public boolean existsById(long id) {
 		return addressDao.existsById(id);
+	}
+
+	@Override
+	public List<Address> findRefID(Long id) {
+		List<Address> list = new ArrayList<>();
+		System.out.println(list);
+		addressDao.findRefID(id).iterator().forEachRemaining(list::add);
+		return list;
 	}
 }

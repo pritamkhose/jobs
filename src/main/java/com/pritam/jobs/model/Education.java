@@ -58,11 +58,11 @@ public class Education implements Serializable {
 	private String institute;
 
 	@Column
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 
 	@Column
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date endDate;
 
 	@Column
