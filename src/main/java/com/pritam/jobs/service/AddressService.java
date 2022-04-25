@@ -8,13 +8,17 @@ public interface AddressService {
 
 	Address save(Address address);
 
+	List<Address> saveList(List<Address> address, long refID);
+
 	List<Address> findAll();
 
 	Address find(long id);
 
-	void delete(long id);
+	List<Address> findRefID(Long id);
 
 	boolean existsById(long id);
 
-	List<Address> findRefID(Long id);
+	void delete(long id);
+
+	void deleteByRefID(long refID);
 }

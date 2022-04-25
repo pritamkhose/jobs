@@ -25,6 +25,11 @@ public class AddressServiceImpl implements AddressService {
 	public void delete(long id) {
 		addressDao.deleteById(id);
 	}
+	
+	@Override
+	public void deleteByRefID(long refID) {
+		addressDao.deleteByRefID(refID);
+	}
 
 	@Override
 	public Address save(Address address) {
@@ -49,8 +54,18 @@ public class AddressServiceImpl implements AddressService {
 	@Override
 	public List<Address> findRefID(Long id) {
 		List<Address> list = new ArrayList<>();
-		System.out.println(list);
 		addressDao.findRefID(id).iterator().forEachRemaining(list::add);
+		return list;
+	}
+
+	@Override
+	public List<Address> saveList(List<Address> address, long refID) {
+		for (Address addr : address) {
+			addr.setRefID(refID);
+		}
+		addressDao.saveAll(address);
+		List<Address> list = new ArrayList<>();
+		addressDao.findRefID(refID).iterator().forEachRemaining(list::add);
 		return list;
 	}
 }

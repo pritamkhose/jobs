@@ -27,6 +27,11 @@ public class EducationServiceImpl implements EducationService {
 	}
 
 	@Override
+	public void deleteByRefID(long refID) {
+		educationDao.deleteByRefID(refID);
+	}
+
+	@Override
 	public Education save(Education education) {
 		return educationDao.save(education);
 	}
@@ -53,4 +58,16 @@ public class EducationServiceImpl implements EducationService {
 		educationDao.findRefID(id).iterator().forEachRemaining(list::add);
 		return list;
 	}
+
+	@Override
+	public List<Education> saveList(List<Education> education, long refID) {
+		for (Education edu : education) {
+			edu.setRefID(refID);
+		}
+		educationDao.saveAll(education);
+		List<Education> list = new ArrayList<>();
+		educationDao.findRefID(refID).iterator().forEachRemaining(list::add);
+		return list;
+	}
+
 }

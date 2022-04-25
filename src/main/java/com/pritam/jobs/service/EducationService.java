@@ -6,16 +6,19 @@ import com.pritam.jobs.model.Education;
 
 public interface EducationService {
 
-	Education save(Education education);
+	Education save(Education address);
+
+	List<Education> saveList(List<Education> address, long refID);
 
 	List<Education> findAll();
 
 	Education find(long id);
 
-	void delete(long id);
+	List<Education> findRefID(Long id);
 
 	boolean existsById(long id);
 
-	List<Education> findRefID(Long id);
+	void delete(long id);
 
+	void deleteByRefID(long refID);
 }

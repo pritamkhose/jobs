@@ -309,7 +309,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"firstName\": \"firstName\",\n  \"lastName\": \"lastName\",\n  \"emailID\": \"email.com@sdjg.com\",\n  \"mobileNo\": 9754124361\n}",
+							"raw": "{\n  \"firstName\": \"Pritam\",\n  \"lastName\": \"Khose\",\n  \"emailID\": \"pritam.khose@gmail.com\",\n  \"mobileNo\": 9999988885\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -442,13 +442,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/job/66",
+							"raw": "{{baseURL}}/job/79",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"job",
-								"66"
+								"79"
 							]
 						}
 					},
@@ -461,7 +461,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"firstName\": \"firstName\",\n  \"lastName\": \"lastName\",\n  \"emailID\": \"email.com@sdjg.com\",\n  \"mobileNo\": 9754124361\n}",
+							"raw": "{\n  \"address\": [\n        {\n            \"type\": \"2\",\n            \"addrLine1\": \"aadd\",\n            \"addrLine2\": \"addrLine2\",\n            \"landmark\": \"landmark\",\n            \"city\": \"city\",\n            \"district\": \"district\",\n            \"state\": \"state\",\n            \"country\": \"country\",\n            \"pincode\": 414001\n        },\n        {\n            \"type\": \"2\",\n            \"addrLine1\": \"aadd\",\n            \"addrLine2\": \"addrLine2\",\n            \"landmark\": \"landmark\",\n            \"city\": \"city\",\n            \"district\": \"district\",\n            \"state\": \"state\",\n            \"country\": \"country\",\n            \"pincode\": 414001\n        }\n    ],\n    \"education\": [\n        {\n            \"education\": \"string\",\n            \"course\": \"course\",\n            \"specialization\": \"specialization\",\n            \"courseType\": 0,\n            \"university\": \"university\",\n            \"institute\": \"institute\",\n            \"startDate\": \"2022-04-24T00:00:00.000+00:00\",\n            \"endDate\": \"2022-04-24T00:00:00.000+00:00\",\n            \"resultType\": 1,\n            \"result\": \"60%\",\n            \"remark\": \"remark\"\n        },\n        {\n            \"education\": \"string\",\n            \"course\": \"course\",\n            \"specialization\": \"specialization\",\n            \"courseType\": 0,\n            \"university\": \"university\",\n            \"institute\": \"institute\",\n            \"startDate\": \"2022-04-24T00:00:00.000+00:00\",\n            \"endDate\": \"2022-04-24T00:00:00.000+00:00\",\n            \"resultType\": 1,\n            \"result\": \"60%\",\n            \"remark\": \"remark\"\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -469,13 +469,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{baseURL}}/user/",
+							"raw": "{{baseURL}}/job/77",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"user",
-								""
+								"job",
+								"77"
 							]
 						}
 					},
@@ -487,13 +487,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/user/67",
+							"raw": "{{baseURL}}/job/79",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
-								"user",
-								"67"
+								"job",
+								"79"
 							]
 						}
 					},
