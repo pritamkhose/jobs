@@ -18,4 +18,6 @@ public interface FilesStorageService {
 	public Stream<Path> loadAll();
 
 	public ArrayList<String> logSaver();
+
+	public Boolean delete(String filename);
 }

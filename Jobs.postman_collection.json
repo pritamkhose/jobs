@@ -557,6 +557,24 @@
 					"response": []
 				},
 				{
+					"name": "Download file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/files/WhatsApp Image 2022-04-28 at 8.38.19 PM.png",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"files",
+								"WhatsApp Image 2022-04-28 at 8.38.19 PM.png"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Upload File",
 					"request": {
 						"method": "POST",
@@ -594,7 +612,10 @@
 								{
 									"key": "files",
 									"type": "file",
-									"src": []
+									"src": [
+										"/Users/pritamkhose/Downloads/1646634312260.pdf",
+										"/Users/pritamkhose/Downloads/637443115602580742.pdf"
+									]
 								}
 							]
 						},
@@ -611,9 +632,9 @@
 					"response": []
 				},
 				{
-					"name": "Download file",
+					"name": "Delete file",
 					"request": {
-						"method": "GET",
+						"method": "DELETE",
 						"header": [],
 						"url": {
 							"raw": "{{baseURL}}/files/WhatsApp Image 2022-04-28 at 8.38.19 PM.png",

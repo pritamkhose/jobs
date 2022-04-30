@@ -1,6 +1,7 @@
 package com.pritam.jobs.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +50,13 @@ public class FilesController {
 		}
 	}
 
+	@PostMapping("/uploadMultipleFiles")
+	public ResponseEntity<List<ResponseEntity<Object>>> uploadMultipleFiles(
+			@RequestParam("files") MultipartFile[] files) {
+		return ResponseEntity.status(HttpStatus.OK)
+				.body(Arrays.asList(files).stream().map(file -> uploadFile(file)).collect(Collectors.toList()));
+	}
+
 	@GetMapping("/files")
 	public ResponseEntity<List<FileInfo>> getListFiles() {
 		List<FileInfo> fileInfos = storageService.loadAll().map(path -> {
@@ -66,6 +75,12 @@ public class FilesController {
 		return ResponseEntity.ok()
 				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
 				.body(file);
+	}
+
+	@DeleteMapping("/files/{filename:.+}")
+	@ResponseBody
+	public ResponseEntity<Void> deleteFile(@PathVariable String filename) {
+		return new ResponseEntity<Void>(storageService.delete(filename) ? HttpStatus.OK : HttpStatus.NOT_FOUND);
 	}
 
 	@GetMapping("/logSaver")
