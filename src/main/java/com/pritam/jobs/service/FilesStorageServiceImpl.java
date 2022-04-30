@@ -1,26 +1,53 @@
 package com.pritam.jobs.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.stream.Stream;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.pritam.jobs.dao.FileDBRepository;
+import com.pritam.jobs.storage.FileDB;
 
 @Service
 public class FilesStorageServiceImpl implements FilesStorageService {
 	private final Path root = Paths.get("uploads");
+
+	@Autowired
+	private FileDBRepository fileDBRepository;
+
+	public FileDB storeDB(MultipartFile file) throws IOException {
+		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+		FileDB FileDB = new FileDB(fileName, file.getContentType(), fileName, file.getBytes(), null, null);
+		return fileDBRepository.save(FileDB);
+	}
+
+	public FileDB getFileDB(String id) {
+		return fileDBRepository.findById(id).get();
+	}
+
+	public Stream<FileDB> getAllFilesDB() {
+		return fileDBRepository.findAll().stream();
+	}
+	
+	public void deleteFileDB(String id) {
+		 fileDBRepository.deleteById(id);
+	}
+
 
 	@Override
 	public void init() {
