@@ -442,13 +442,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseURL}}/job/79",
+							"raw": "{{baseURL}}/job/77",
 							"host": [
 								"{{baseURL}}"
 							],
 							"path": [
 								"job",
-								"79"
+								"77"
 							]
 						}
 					},
@@ -494,6 +494,135 @@
 							"path": [
 								"job",
 								"79"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "upload local",
+			"item": [
+				{
+					"name": "Log Saver",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/logSaver",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"logSaver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download Log",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/downloadLog/log-2022-05-01-00-51-41.log",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"downloadLog",
+								"log-2022-05-01-00-51-41.log"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All files",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/files",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/pritamkhose/Downloads/WhatsApp Image 2022-04-28 at 8.38.19 PM.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/upload",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload Multiple Files",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "files",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/uploadMultipleFiles",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"uploadMultipleFiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/files/WhatsApp Image 2022-04-28 at 8.38.19 PM.png",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"files",
+								"WhatsApp Image 2022-04-28 at 8.38.19 PM.png"
 							]
 						}
 					},

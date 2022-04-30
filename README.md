@@ -62,5 +62,12 @@ mvn spring-boot:run
 * [baeldung](https://www.baeldung.com/spring-boot-actuators)
 * [callicoder](https://www.callicoder.com/spring-boot-actuator/)
 
-## logging
+## Logging
 * [logging](https://www.baeldung.com/spring-boot-logging)
+
+## Local Storage
+* [File upload local](https://www.bezkoder.com/spring-boot-file-upload/)
+
+* [File upload database](https://www.bezkoder.com/spring-boot-upload-file-database/)
+
+* [callicoder](https://www.callicoder.com/spring-boot-file-upload-download-rest-api-example/)
