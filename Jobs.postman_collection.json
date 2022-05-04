@@ -787,6 +787,40 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Swagger Intergration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/swagger",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"swagger"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Swagger api-docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api-docs",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api-docs"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
