@@ -16,22 +16,18 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Data
-@AllArgsConstructor
 @Table(name = "files")
 public class FileDB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
-//	@GeneratedValue(generator = "uuid")
-//	@GenericGenerator(name = "uuid", strategy = "uuid2")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+	private long id;
 
 	@Column
 	@NotNull

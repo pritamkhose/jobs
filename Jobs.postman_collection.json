@@ -652,6 +652,91 @@
 			]
 		},
 		{
+			"name": "upload Database",
+			"item": [
+				{
+					"name": "Download file by DB",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/filesDB/124",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"filesDB",
+								"124"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All files filesDB",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/filesDB",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"filesDB"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete file DB",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/filesDB/120",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"filesDB",
+								"120"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload File DB",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/Users/pritamkhose/Downloads/WhatsApp Image 2022-04-28 at 8.38.19 PM.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/uploadDB",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"uploadDB"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Swagger UI",
 			"request": {
 				"method": "GET",

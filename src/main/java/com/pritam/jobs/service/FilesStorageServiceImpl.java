@@ -10,6 +10,7 @@ import java.nio.file.StandardCopyOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,26 +29,39 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 	private final Path root = Paths.get("uploads");
 
 	@Autowired
-	private FileDBRepository fileDBRepository;
+	private FileDBRepository aDao;
 
+	@Override
 	public FileDB storeDB(MultipartFile file) throws IOException {
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-		FileDB FileDB = new FileDB(fileName, file.getContentType(), fileName, file.getBytes(), null, null);
-		return fileDBRepository.save(FileDB);
+		FileDB fileDB = new FileDB();
+		fileDB.setName(fileName);
+		fileDB.setType(file.getContentType());
+		fileDB.setData(file.getBytes());
+		return aDao.save(fileDB);
 	}
 
-	public FileDB getFileDB(String id) {
-		return fileDBRepository.findById(id).get();
+	@Override
+	public List<FileDB> getAllFilesDB() {
+		List<FileDB> list = new ArrayList<>();
+		aDao.findAll().iterator().forEachRemaining(list::add);
+		return list;
 	}
 
-	public Stream<FileDB> getAllFilesDB() {
-		return fileDBRepository.findAll().stream();
-	}
-	
-	public void deleteFileDB(String id) {
-		 fileDBRepository.deleteById(id);
+	@Override
+	public FileDB getFileDB(long id) {
+		return aDao.findById(id).orElse(null);
 	}
 
+	@Override
+	public void deleteFileDB(long id) {
+		aDao.deleteById(id);
+	}
+
+	@Override
+	public boolean existsFileById(long id) {
+		return aDao.existsById(id);
+	}
 
 	@Override
 	public void init() {
@@ -142,4 +156,5 @@ public class FilesStorageServiceImpl implements FilesStorageService {
 		}
 
 	}
+
 }

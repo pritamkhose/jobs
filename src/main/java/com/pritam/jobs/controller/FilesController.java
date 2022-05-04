@@ -1,9 +1,15 @@
 package com.pritam.jobs.controller;
 
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -20,19 +26,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.pritam.jobs.service.FilesStorageService;
 import com.pritam.jobs.storage.FileDB;
 import com.pritam.jobs.storage.FileInfo;
 import com.pritam.jobs.storage.MyFileNotFoundException;
-import com.pritam.jobs.storage.ResponseFile;
 import com.pritam.jobs.storage.ResponseMessage;
-
-import javax.servlet.http.HttpServletRequest;
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 @CrossOrigin("*")
@@ -106,53 +105,39 @@ public class FilesController {
 		} catch (MalformedURLException ex) {
 			throw new MyFileNotFoundException("File not found " + fileName, ex);
 		}
-
 	}
 
 	@PostMapping("/uploadDB")
-	public ResponseEntity<ResponseMessage> uploadFileDB(@RequestParam("file") MultipartFile file) {
-		String message = "";
+	public ResponseEntity<Object> uploadFileDB(@RequestParam("file") MultipartFile file) {
 		try {
-			storageService.storeDB(file);
-			message = "Uploaded the file successfully: " + file.getOriginalFilename();
-			return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
+			return ResponseEntity.status(HttpStatus.OK).body(storageService.storeDB(file));
 		} catch (Exception e) {
-			message = "Could not upload the file: " + file.getOriginalFilename() + "!";
+			String message = "Could not upload the file: " + file.getOriginalFilename() + "!";
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
 		}
 	}
-	
-	@PostMapping("/uploadMultipleFilesDB")
-	public ResponseEntity<List<ResponseEntity<ResponseMessage>>> uploadMultipleFilesDB(
-			@RequestParam("files") MultipartFile[] files) {
-		return ResponseEntity.status(HttpStatus.OK)
-				.body(Arrays.asList(files).stream().map(file -> uploadFileDB(file)).collect(Collectors.toList()));
-	}
 
 	@GetMapping("/filesDB")
-	public ResponseEntity<List<ResponseFile>> getListFilesDB() {
-		List<ResponseFile> files = storageService.getAllFilesDB().map(dbFile -> {
-			String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath().path("/files/")
-					.path(dbFile.getId()).toUriString();
-			return new ResponseFile(dbFile.getName(), fileDownloadUri, dbFile.getType(), dbFile.getData().length);
-		}).collect(Collectors.toList());
-		return ResponseEntity.status(HttpStatus.OK).body(files);
+	public ResponseEntity<List<FileDB>> getListFilesDB() {
+		return ResponseEntity.status(HttpStatus.OK).body(storageService.getAllFilesDB());
 	}
 
 	@GetMapping("/filesDB/{id}")
-	public ResponseEntity<byte[]> getFileDB(@PathVariable String id) {
-		FileDB fileDB = storageService.getFileDB(id);
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
-				.body(fileDB.getData());
+	public ResponseEntity<byte[]> getFileDB(@PathVariable long id) {
+		try {
+			FileDB fileDB = storageService.getFileDB(id);
+			return ResponseEntity.ok()
+					.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + fileDB.getName() + "\"")
+					.body(fileDB.getData());
+		} catch (Exception ex) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
 	}
 
-	@DeleteMapping("/fileDB/{filename:.+}")
-	@ResponseBody
-	public ResponseEntity<Void> deleteFileDB(@PathVariable String filename) {
-		FileDB fileDB = storageService.getFileDB(filename);
-		if (fileDB != null) {
-			storageService.deleteFileDB(filename);
+	@DeleteMapping("/filesDB/{id}")
+	public ResponseEntity<Void> deleteFileDB(@PathVariable long id) {
+		if (storageService.getFileDB(id) != null) {
+			storageService.deleteFileDB(id);
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		} else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);

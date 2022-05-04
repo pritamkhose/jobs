@@ -10,7 +10,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.lang.Nullable;
 
-import lombok.*;
 import lombok.Data;
 
 @Entity

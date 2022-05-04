@@ -3,6 +3,7 @@ package com.pritam.jobs.service;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 import org.springframework.core.io.Resource;
@@ -27,9 +28,11 @@ public interface FilesStorageService {
 
 	public FileDB storeDB(MultipartFile file) throws IOException;
 
-	public FileDB getFileDB(String id);
+	public List<FileDB> getAllFilesDB();
 
-	public Stream<FileDB> getAllFilesDB();
+	public FileDB getFileDB(long id);
 
-	public void deleteFileDB(String id);
+	public void deleteFileDB(long id);
+
+	public boolean existsFileById(long id);
 }
