@@ -22,6 +22,8 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 
 ```shell
 mvn spring-boot:run
+mvn clean install
+mvn compile package
 ```
 
 
@@ -49,7 +51,9 @@ mvn spring-boot:run
 ## Tools
 * [Spring Initializr](https://start.spring.io/)
 
-* [Liquibase](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
+## Liquibase
+* [Example](https://docs.liquibase.com/tools-integrations/springboot/using-springboot-with-maven.html) [Github](https://github.com/serlesen/backend-social-network/tree/chapter_6)
+* [Liquibase baeldung](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
 
 ## Lombok
 * [Lombok IDE installation](https://www.baeldung.com/lombok-ide)
