@@ -22,6 +22,8 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 
 ```shell
 mvn spring-boot:run
+mvn clean install
+mvn compile package
 ```
 
 
@@ -49,11 +51,17 @@ mvn spring-boot:run
 ## Tools
 * [Spring Initializr](https://start.spring.io/)
 
-* [Liquibase](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
+## Liquibase
+* [Example 1](https://docs.liquibase.com/tools-integrations/springboot/using-springboot-with-maven.html) [Github](https://github.com/serlesen/backend-social-network/tree/chapter_6) [more](https://docs.liquibase.com/change-types/sql.html)
+* [Example 2](https://github.com/serlesen/backend-social-network) [youtube](https://www.youtube.com/watch?v=uegLZi7-sGc)
+* [Liquibase baeldung](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
+* [Supported databases](https://www.liquibase.org/get-started/databases)
+* [liquibase-fails error](https://stackoverflow.com/questions/32350054/liquibase-fails-if-computer-is-not-connected-to-internet)
 
 ## Lombok
-* [Lombok IDE installation](https://www.baeldung.com/lombok-ide)
+* [Lombok IDE installation](https://www.baeldung.com/lombok-ide) [features](https://projectlombok.org/features/all)
 * [Lombok tutorial](https://medium.com/@udith.indrakantha/say-bye-bye-to-annoying-getters-setters-shorten-your-java-code-with-lombok-d656ae66e163)
+* [A Complete Guide to Lombok](https://auth0.com/blog/a-complete-guide-to-lombok/)
 
 ## Swagger OpenAPI
 * [Swagger OpenAPI](https://www.baeldung.com/spring-rest-openapi-documentation)
