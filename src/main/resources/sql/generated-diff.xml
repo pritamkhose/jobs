@@ -1,0 +1,135 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="pritamkhose (generated)" id="1651993172671-1">
+        <createTable tableName="Address">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="addrLine1" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="addrLine2" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="city" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="country" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="district" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="landmark" type="VARCHAR(50)"/>
+            <column name="pincode" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="state" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="refID" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="pritamkhose (generated)" id="1651993172671-2">
+        <createTable tableName="Data">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="descp" type="VARCHAR(255)"/>
+            <column name="phone" type="BIGINT"/>
+            <column name="pin" type="INT"/>
+            <column name="title" type="VARCHAR(10)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="pritamkhose (generated)" id="1651993172671-3">
+        <createTable tableName="Education">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="course" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="courseType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="education" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="endDate" type="datetime"/>
+            <column name="institute" type="VARCHAR(255)"/>
+            <column name="refID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="remark" type="VARCHAR(255)"/>
+            <column name="result" type="VARCHAR(10)"/>
+            <column name="resultType" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="specialization" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="startDate" type="datetime"/>
+            <column name="university" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pritamkhose (generated)" id="1651993172671-4">
+        <createTable tableName="Users">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="created_on" type="datetime"/>
+            <column name="emailID" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="firstName" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lastName" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="mobileNo" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="userType" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pritamkhose (generated)" id="1651993172671-5">
+        <createTable tableName="bank_details">
+            <column autoIncrement="true" name="bank_id" type="INT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="bank_name" type="VARCHAR(49)"/>
+            <column name="bank_ifsc" type="VARCHAR(11)"/>
+            <column name="bank_branch" type="VARCHAR(74)"/>
+            <column name="bank_address" type="VARCHAR(195)"/>
+            <column name="bank_city" type="VARCHAR(50)"/>
+            <column name="bank_district" type="VARCHAR(50)"/>
+            <column name="bank_state" type="VARCHAR(26)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="pritamkhose (generated)" id="1651993172671-6">
+        <createTable tableName="files">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="active" type="BIT(1)"/>
+            <column name="created_on" type="datetime"/>
+            <column name="data" type="LONGBLOB">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

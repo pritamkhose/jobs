@@ -57,6 +57,12 @@ mvn compile package
 * [Liquibase baeldung](https://www.baeldung.com/liquibase-refactor-schema-of-java-app)
 * [Supported databases](https://www.liquibase.org/get-started/databases)
 * [liquibase-fails error](https://stackoverflow.com/questions/32350054/liquibase-fails-if-computer-is-not-connected-to-internet)
+* [Spring Tips_ Reliable Database Migrations with Liquibase and Spring Boot Github](https://github.com/spring-tips/liquibase/blob/master/script.md) [youtube](https://www.youtube.com/watch?v=YhicwD489xQ)
+```shell
+ mvn liquibase:diff
+ mvn liquibase:generateChangeLog
+ mvn liquibase:update
+```
 
 ## Lombok
 * [Lombok IDE installation](https://www.baeldung.com/lombok-ide) [features](https://projectlombok.org/features/all)
@@ -79,3 +85,6 @@ mvn compile package
 * [File upload database](https://www.bezkoder.com/spring-boot-upload-file-database/)
 
 * [callicoder](https://www.callicoder.com/spring-boot-file-upload-download-rest-api-example/)
+
+## Testing
+* [Testing the Web Layer](https://spring.io/guides/gs/testing-web/) [Github](https://github.com/spring-guides/gs-testing-web/tree/main/complete)
