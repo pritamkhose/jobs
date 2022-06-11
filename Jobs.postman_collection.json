@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9b0eb2a1-a03f-4b03-a020-0ced70c75cf4",
+		"_postman_id": "46b6f832-9ad8-4f01-ac1a-235ea2864065",
 		"name": "Jobs",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,6 +25,56 @@
 								{
 									"key": "type",
 									"value": "Config"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pincode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/config/pincode",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"config",
+								"pincode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pincode address",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/config/addr?pageNo=2&pageSize=3&sortBy=ID",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"config",
+								"addr"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "2"
+								},
+								{
+									"key": "pageSize",
+									"value": "3"
+								},
+								{
+									"key": "sortBy",
+									"value": "ID"
 								}
 							]
 						}

@@ -40,6 +40,8 @@ mvn compile package
 
 * [Spring Boot Reference Documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/index.html)
 
+* [Spring Boot Pagination sorting](https://howtodoinjava.com/spring-boot2/pagination-sorting-example)
+
 ## MongoDB
 * [Spring Boot MongoDB](https://www.journaldev.com/18156/spring-boot-mongodb)
 
