@@ -42,6 +42,10 @@ mvn compile package
 
 * [Spring Boot Pagination sorting](https://howtodoinjava.com/spring-boot2/pagination-sorting-example)
 
+* [Spring Boot Thymeleaf Example](https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-crud)
+
+* [w3schools Bootstrap](https://www.w3schools.com/bootstrap/bootstrap_buttons.asp)
+
 ## MongoDB
 * [Spring Boot MongoDB](https://www.journaldev.com/18156/spring-boot-mongodb)
 

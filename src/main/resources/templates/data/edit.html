@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>SpringBoot Thymeleaf Bootstrap 4 Table Example</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Data Edit</h1>
+      <div class="row">
+        <div class="col-md-6">
+          <form
+            action="#"
+            th:action="@{/data/dataHTML/submitData}"
+            th:object="${data}"
+            method="post"
+          >
+            <div class="row">
+              <input type="hidden" th:value="${id}" name="id" />
+              <div class="form-group col-md-6">
+                <label for="title" class="col-form-label">Title</label>
+                <input
+                  type="text"
+                  th:field="*{title}"
+                  class="form-control"
+                  id="title"
+                  placeholder="Title"
+                />
+                <span
+                  th:if="${#fields.hasErrors('title')}"
+                  th:errors="*{title}"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="title" class="col-form-label">Description</label>
+                <input
+                  type="text"
+                  th:field="*{descp}"
+                  class="form-control"
+                  id="descp"
+                  placeholder="Description"
+                />
+                <span
+                  th:if="${#fields.hasErrors('descp')}"
+                  th:errors="*{descp}"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="phone" class="col-form-label">Phone</label>
+                <input
+                  type="number"
+                  th:field="*{phone}"
+                  class="form-control"
+                  id="phone"
+                  placeholder="Phone"
+                />
+                <span
+                  th:if="${#fields.hasErrors('phone')}"
+                  th:errors="*{phone}"
+                  class="text-danger"
+                ></span>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="pin" class="col-form-label">Pin</label>
+                <input
+                  type="number"
+                  th:field="*{pin}"
+                  class="form-control"
+                  id="title"
+                  placeholder="Pin"
+                />
+                <span
+                  th:if="${#fields.hasErrors('pin')}"
+                  th:errors="*{pin}"
+                  class="text-danger"
+                ></span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4 mt-5">
+                <input type="submit" class="btn btn-success" value="Submit" />
+              </div>
+              <div class="col-md-4 mt-5">
+                <p class="my-1">
+                  <a href="/data/dataHTML" class="btn btn-warning">Cancel</a>
+                </p>
+              </div>
+              <div th:if="${id != 0}" class="col-md-4 mt-5">
+                <p class="my-1">
+                  <a
+                    th:href="@{/data/dataHTML/delete/{id}(id=${data.id})}"
+                    class="btn btn-danger"
+                    >Delete</a
+                  >
+                </p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
