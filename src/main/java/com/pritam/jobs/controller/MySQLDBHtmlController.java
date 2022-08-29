@@ -1,6 +1,8 @@
 package com.pritam.jobs.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -8,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.thymeleaf.context.Context;
+import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
@@ -20,6 +24,9 @@ public class MySQLDBHtmlController {
 
 	@Autowired
 	private DataService dataService;
+	
+    @Autowired
+    private SpringTemplateEngine thymeleafTemplateEngine;
 
 	@GetMapping("")
 	public ModelAndView listDataHTML(Model model) {
@@ -27,6 +34,22 @@ public class MySQLDBHtmlController {
 		model.addAttribute("datas", datas);
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("data/data.table.html");
+		return modelAndView;
+	}
+	
+	@GetMapping("/email")
+	public ModelAndView listEmailHTML(Model model) {
+		List<Data> datas = dataService.findAll();
+		Map<String, Object> emailModel = new HashMap<String, Object>();
+		emailModel.put("datas", datas);
+		Context thymeleafContext = new Context();
+        thymeleafContext.setVariables(emailModel);
+		String htmlBody = thymeleafTemplateEngine.process("data/data_email.html", thymeleafContext);
+		System.out.println("htmlBody --> " + htmlBody);
+		
+		model.addAttribute("datas", datas);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("data/data_email.html");
 		return modelAndView;
 	}
 
